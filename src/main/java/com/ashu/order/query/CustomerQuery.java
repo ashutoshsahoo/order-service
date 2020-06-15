@@ -15,7 +15,7 @@ public class CustomerQuery implements GraphQLQueryResolver {
 
 	private final CustomerService customerService;
 
-	@PreAuthorize("hasAnyRole('ORDER_VIEWER','ORDER_ADMINISTRATOR')")
+	@PreAuthorize("isAuthenticated()")
 	public Customer customerById(String id) {
 		return customerService.viewById(id);
 	}

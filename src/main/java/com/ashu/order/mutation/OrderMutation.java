@@ -16,7 +16,7 @@ public class OrderMutation implements GraphQLMutationResolver {
 
 	private final OrderService orderService;
 
-	@PreAuthorize("hasRole('ORDER_ADMINISTRATOR')")
+	@PreAuthorize("isAuthenticated()")
 	public Order createOrder(CreateOrderInput createOrderInput) {
 		return orderService.create(createOrderInput);
 	}

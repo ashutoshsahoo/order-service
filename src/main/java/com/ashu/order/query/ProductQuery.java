@@ -15,7 +15,7 @@ public class ProductQuery implements GraphQLQueryResolver {
 
 	private final ProductService productService;
 
-	@PreAuthorize("hasAnyRole('ORDER_VIEWER','ORDER_ADMINISTRATOR')")
+	@PreAuthorize("isAuthenticated()")
 	public Product productById(String id) {
 		return productService.viewById(id);
 	}

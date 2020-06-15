@@ -15,7 +15,7 @@ public class ProductMutation implements GraphQLMutationResolver {
 
 	private final ProductService productService;
 
-	@PreAuthorize("hasRole('ORDER_ADMINISTRATOR')")
+	@PreAuthorize("isAuthenticated()")
 	public Product createProduct(Product product) {
 		return productService.create(product);
 	}
