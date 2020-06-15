@@ -1,0 +1,18 @@
+graphql:
+  servlet:    exception-handlers-enabled: true
+    
+  playground:
+    mapping: /playground
+    pageTitle: GraphQL Playground
+    
+spring:  h2:    console:      enabled: true
+  datasource:    url: jdbc:h2:mem:test
+    
+jwt:
+  audience: myapp
+  issuer: mycompanyname
+  secret: 4ao25ZPL/aC3lqRuDoj9RsuxLq+TtgkSAGkXFQ==jucr3j0SwCaCzNlePozoUIXl
+  tokenvalidity: 18000000 # 5*60*60*1000
+  type: Bearer
+    
+#logging:#  level:#    org.springframework.security: DEBUG

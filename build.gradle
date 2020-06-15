@@ -1,0 +1,46 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.1.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'com.ashu.practice'
+version = '1.0.0'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'	
+	implementation "com.graphql-java-kickstart:graphql-spring-boot-starter:$GRAPHQL_VER"
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	//compileOnly 'org.springframework.boot:spring-boot-configuration-processor' // remove it
+	compileOnly "io.jsonwebtoken:jjwt-api:$JWT_VER"
+	compileOnly 'org.springframework.boot:spring-boot-starter-aop'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
+	runtimeOnly "io.jsonwebtoken:jjwt-impl:$JWT_VER"
+	runtimeOnly "io.jsonwebtoken:jjwt-jackson:$JWT_VER"
+	runtimeOnly "com.graphql-java-kickstart:playground-spring-boot-starter:$GRAPHQL_VER"
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testImplementation 'org.springframework.security:spring-security-test'
+	testImplementation "com.graphql-java-kickstart:graphql-spring-boot-starter-test:$GRAPHQL_VER"
+	testImplementation "com.github.javafaker:javafaker:$JAVA_FAKER_VER"
+}
+
+test {
+	useJUnitPlatform()
+}

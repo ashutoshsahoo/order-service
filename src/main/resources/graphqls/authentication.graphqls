@@ -1,0 +1,30 @@
+extend type Mutation {
+  login(request: LoginRequest!): LoginResponse
+  signup(request: SignupRequest!): SignupResponse
+}
+
+input LoginRequest {
+  username: String!
+  password: String!
+}
+
+input SignupRequest {
+  username: String!
+  password: String!
+  email: String!
+  roles: [String]
+}
+
+
+type LoginResponse {
+    token: String
+    type: String
+    username: String
+    roles: [String]
+}
+
+type SignupResponse {
+  username: String
+  email: String
+  roles: [String]
+}

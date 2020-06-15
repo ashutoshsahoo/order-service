@@ -1,0 +1,7 @@
+mutation($request: SignupRequest!) {
+  signup(request: $request) {
+    username
+    email
+    roles
+  }
+}

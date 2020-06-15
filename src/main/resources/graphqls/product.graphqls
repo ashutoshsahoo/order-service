@@ -1,0 +1,22 @@
+type Product {
+  id: String!
+  name: String
+  description: String
+  price: String
+}
+
+type Query {
+  productById(id: ID!): Product
+}
+
+input ProductInput {
+  id: String!
+  name: String
+  description: String
+  price: String
+}
+
+type Mutation {
+  createProduct(product: ProductInput!): Product!
+}
+

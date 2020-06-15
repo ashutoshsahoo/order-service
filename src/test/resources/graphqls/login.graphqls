@@ -1,0 +1,8 @@
+mutation($request: LoginRequest!){
+  login(request: $request){
+    token
+    type
+    username
+    roles
+  }
+}
