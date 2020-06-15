@@ -1,5 +1,54 @@
 # Order Service
 
+## Signup
+
+```graphql
+mutation($request: SignupRequest!) {
+  signup(request: $request) {
+    username
+    email
+    roles
+  }
+}
+```
+
+and query variable
+
+```graphql
+{
+  "request": {
+    "username": "ashutosh",
+    "password": "ashu@123",
+    "email": "ashu@email.com"
+  }
+}
+```
+
+
+## Signin
+
+```graphql
+mutation($request: LoginRequest!){
+  login(request: $request){
+    token
+    username
+    roles
+  }
+}
+```
+
+and query variable
+
+```graphql
+{
+  "request": {
+    "username": "ashutosh",
+    "password": "ashu@123"
+  }
+}
+```
+Use the response token to add into Authorization header for all the following requests.
+
 ## Create product
 
 ```graphql
@@ -80,7 +129,7 @@ and query variable
 {
   "order": {
    "customerId": "1",
-    "productId": "2",
+    "productId": "1",
     "quantity": 3
   }
 }
